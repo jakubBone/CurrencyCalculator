@@ -10,21 +10,17 @@ import java.util.Map;
 @Service
 public class ExchangeService {
 
-    public enum Currency {
-        PLN, USD, EUR
-    }
-
-    private final Map<Currency, BigDecimal> currencyRates;
+    private final Map<String, BigDecimal> currencyRates;
 
     public ExchangeService() {
-        currencyRates = new HashMap<>()
-        currencyRates.put(Currency.USD, new BigDecimal("4.10"));
-        currencyRates.put(Currency.EUR, new BigDecimal("4.00"));
-        currencyRates.put(Currency.PLN, BigDecimal.ONE);
+        currencyRates = new HashMap<>();
+        currencyRates.put("USD", new BigDecimal("4.10"));
+        currencyRates.put("EUR", new BigDecimal("4.00"));
+        currencyRates.put("PLN", BigDecimal.ONE);
     }
 
-    public BigDecimal exchange(BigDecimal amount, Currency from, Currency to){
-        if(from == to){
+    public BigDecimal exchange(BigDecimal amount, String from, String to){
+        if(from.equals(to)){
             return amount;
         }
 
@@ -39,7 +35,8 @@ public class ExchangeService {
         BigDecimal plnAmount = amount.multiply(currencyRates.get(from));
 
         // 16 pln
-        return plnAmount.divide(currencyRates.get(from), RoundingMode.HALF_UP);
-
+        // 2  wynik zaokrąglony do dwóch miejsc
+        // RoundingMode.HALF_UP - zaokrąglenie do góry
+        return plnAmount.divide(currencyRates.get(to), 2, RoundingMode.HALF_UP);
     }
 }
