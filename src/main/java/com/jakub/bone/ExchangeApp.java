@@ -11,12 +11,12 @@ import org.springframework.http.ResponseEntity;
 import java.math.BigDecimal;
 
 @SpringBootApplication
-public class ConjugatorApp {
+public class ExchangeApp {
     @Autowired
     private ExchangeController exchangeController;
 
     public static void main(String[] args) {
-        SpringApplication.run(ConjugatorApp.class, args);
+        SpringApplication.run(ExchangeApp.class, args);
     }
 
     // TESTOWANIE APLIKACJI
