@@ -4,15 +4,14 @@ import com.jakub.bone.domain.model.CurrencyRequest;
 import com.jakub.bone.service.ExchangeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.function.EntityResponse;
 
 import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("api/currency")
 public class ExchangeController {
-    // @RestController informuje Springa, że klasa będzie obsługiwać żądania REST
-    // @RequestMapping ustala wspólny prefiks dla wszystkich endpointów
+    // @RestController - informuje Springa, że klasa będzie obsługiwać żądania REST
+    // @RequestMapping - ustala wspólny prefiks dla wszystkich endpointów
 
     ExchangeService service;
 
@@ -20,9 +19,8 @@ public class ExchangeController {
         this.service = service;
     }
 
-    // Metoda przyjmuje żądanie HTTP POST
+    // @PostMapping - przyjmuje żądanie HTTP POST
     // Odczytuje dane w formacie JSON (dzięki @RequestBody)
-    // Wywołuje metodę serwisu
     @PostMapping("/exchange")
     public ResponseEntity<BigDecimal> exchangeCurrency(@RequestBody CurrencyRequest req){
         try{
@@ -33,4 +31,9 @@ public class ExchangeController {
             throw new IllegalArgumentException();
         }
     }
+
+    // ResponseEntity -reprezentuje pełną odpowiedź HTTP
+    // Status HTTP - 200 OK, 400 Bad Request, 404 Not Found
+    // Nagłówki (headers) - dodatkowe informacje do odpowiedzi
+    // Treść (body) - zawartość odpowiedzi
 }

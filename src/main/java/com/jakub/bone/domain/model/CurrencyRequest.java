@@ -15,6 +15,8 @@ public class CurrencyRequest {
     private BigDecimal amount;
     private String from;
     private String to;
+
+    // @NoArgsConstructor - Jackson wymaga bezargumentowgo, aby stworzyć nowy obiekt
 }
 
 

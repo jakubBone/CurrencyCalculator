@@ -35,14 +35,14 @@ public class ConjugatorApp {
     // Rozwiązanie 2:
     @Override
     public void run(String... args) throws Exception {
-        // Przykładwy request
+        // Przykładowy request
         CurrencyRequest req = new CurrencyRequest();
         req.setAmount(new BigDecimal("100"));
         req.setFrom("EUR");
         req.setTo("PLN");
 
-        // Wywołaj metodę kontrolera bezpośrednio
+        // Test
         ResponseEntity<?> response = exchangeController.exchangeCurrency(req);
-        System.out.println("Wynik wymiany: " + response.getBody());
+        System.out.println("Result: " + response.getBody());
     }
 }
