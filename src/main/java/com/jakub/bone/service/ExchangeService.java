@@ -31,11 +31,10 @@ public class ExchangeService {
             throw new IllegalArgumentException("unknown currency:" +
                     (fromCurrency == null ? from: to ));
         }
-         // 4 euro
+
         BigDecimal plnAmount = amount.multiply(currencyRates.get(from));
 
-        // 16 pln
-        // 2  wynik zaokrąglony do dwóch miejsc
+        // 2 - wynik zaokrąglony do dwóch miejsc
         // RoundingMode.HALF_UP - zaokrąglenie do góry
         return plnAmount.divide(currencyRates.get(to), 2, RoundingMode.HALF_UP);
     }

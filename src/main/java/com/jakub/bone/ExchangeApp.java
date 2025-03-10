@@ -12,6 +12,9 @@ import java.math.BigDecimal;
 
 @SpringBootApplication
 public class ExchangeApp {
+    // @SpringBootApplication - uruchamia i konfiguruje
+
+    // Autowired - Wstrzykuje instancje (bez tworzenia new obj)
     @Autowired
     private ExchangeController exchangeController;
 

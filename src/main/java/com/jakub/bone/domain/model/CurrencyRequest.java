@@ -16,7 +16,7 @@ public class CurrencyRequest {
     private String from;
     private String to;
 
-    // @NoArgsConstructor - Jackson wymaga bezargumentowgo, aby stworzyć nowy obiekt
+    // @NoArgsConstructor - Jackson wymaga bezargumentowgo, aby stworzyć request
 }
 
 
