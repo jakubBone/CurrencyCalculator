@@ -38,4 +38,5 @@ public class ExchangeService {
         // RoundingMode.HALF_UP - zaokrąglenie do góry
         return plnAmount.divide(currencyRates.get(to), 2, RoundingMode.HALF_UP);
     }
+
 }
