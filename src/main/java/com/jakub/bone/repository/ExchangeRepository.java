@@ -31,13 +31,6 @@ public class ExchangeRepository {
         }
     }
 
-    /**
-     * Saves a currency exchange record into the database.
-     *
-     * @param amount the exchanged amount
-     * @param from the source currency (e.g. "USD")
-     * @param to the target currency (e.g. "PLN")
-     */
     public void saveExchange(BigDecimal amount, String from, String to) throws SQLException {
         String sql = "INSERT INTO exchange (\"amount\", \"from\", \"to\") VALUES (?, ?, ?)";
         try (Connection connection = datasource.connect();

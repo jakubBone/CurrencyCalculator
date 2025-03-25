@@ -19,12 +19,10 @@ public class ExchangeController {
         this.service = service;
     }
 
-    /**
-     * Handles HTTP POST request for /api/currency/exchange
-     * Accepts input in JSON format (via @RequestBody).
-     *
-     * @param req CurrencyRequest containing amount, source, and target currency
-     * @return HTTP 200 OK with exchanged amount in the response body
+    /*
+     Handles HTTP POST request for '/api/currency/exchange'
+     Accepts input in JSON format (via @RequestBody).
+     'req CurrencyRequest' containing amount, source, and target currency
      */
     @PostMapping("/exchange")
     public ResponseEntity<BigDecimal> exchangeCurrency(@RequestBody CurrencyRequest req){
@@ -46,7 +44,7 @@ public class ExchangeController {
     }
 
     // ResponseEntity represents the full HTTP response:
-    // - Status (e.g. 200 OK, 400 Bad Request, 404 Not Found)
-    // - Headers: additional response metadata
-    // - Body: actual response content (e.g. result of conversion)
+    // Status: e.g. 200 OK, 400 Bad Request, 404 Not Found
+    // Headers: additional response metadata
+    // Body: actual response content (e.g. result of conversion)
 }

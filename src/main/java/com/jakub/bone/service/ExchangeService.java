@@ -19,14 +19,6 @@ public class ExchangeService {
         currencyRates.put("PLN", BigDecimal.ONE);
     }
 
-    /**
-     * Exchanges a given amount from one currency to another
-     *
-     * @param amount amount to be exchanged
-     * @param from source currency (e.g. "USD")
-     * @param to target currency (e.g. "PLN")
-     * @return converted amount, rounded to 2 decimal places
-     */
     public BigDecimal exchange(BigDecimal amount, String from, String to){
         if(from.equals(to)){
             return amount;
