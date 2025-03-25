@@ -10,22 +10,25 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 
-@RestController
-@RequestMapping("api/currency")
+@RestController // Informs Spring that this class will handle REST requests and return JSON responses
+@RequestMapping("api/currency") // Sets a common prefix for all endpoints in this controller
 public class ExchangeController {
-    // @RestController - informuje Springa, że klasa będzie obsługiwać żądania REST
-    // @RequestMapping - ustala wspólny prefiks dla wszystkich endpointów
-
     private final ExchangeService service;
 
     public ExchangeController(ExchangeService service) {
         this.service = service;
     }
 
-    // @PostMapping - przyjmuje żądanie HTTP POST
-    // Odczytuje dane w formacie JSON (dzięki @RequestBody)
+    /**
+     * Handles HTTP POST request for /api/currency/exchange
+     * Accepts input in JSON format (via @RequestBody).
+     *
+     * @param req CurrencyRequest containing amount, source, and target currency
+     * @return HTTP 200 OK with exchanged amount in the response body
+     */
     @PostMapping("/exchange")
     public ResponseEntity<BigDecimal> exchangeCurrency(@RequestBody CurrencyRequest req){
+        // @RequestBody maps the incoming JSON request body to a CurrencyRequest object
         try{
             BigDecimal result = service.exchange(req.getAmount(), req.getFrom(), req.getTo());
             Datasource datasource = new Datasource();
@@ -42,8 +45,8 @@ public class ExchangeController {
         }
     }
 
-    // ResponseEntity -reprezentuje pełną odpowiedź HTTP
-    // Status HTTP - 200 OK, 400 Bad Request, 404 Not Found
-    // Nagłówki (headers) - dodatkowe informacje do odpowiedzi
-    // Treść (body) - zawartość odpowiedzi
+    // ResponseEntity represents the full HTTP response:
+    // - Status (e.g. 200 OK, 400 Bad Request, 404 Not Found)
+    // - Headers: additional response metadata
+    // - Body: actual response content (e.g. result of conversion)
 }

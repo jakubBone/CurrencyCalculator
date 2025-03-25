@@ -12,6 +12,7 @@ public class Datasource {
     private final String url = String.format("jdbc:postgresql://localhost:%d/%s", PORT, DATABASE);
     private Connection connection;
 
+
     public Connection connect() throws SQLException {
         try {
             if (connection != null && !connection.isClosed()) {

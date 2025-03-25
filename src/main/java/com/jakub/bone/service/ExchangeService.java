@@ -7,7 +7,7 @@ import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
 
-@Service
+@Service // Marks as a Spring service component
 public class ExchangeService {
 
     private final Map<String, BigDecimal> currencyRates;
@@ -19,6 +19,14 @@ public class ExchangeService {
         currencyRates.put("PLN", BigDecimal.ONE);
     }
 
+    /**
+     * Exchanges a given amount from one currency to another
+     *
+     * @param amount amount to be exchanged
+     * @param from source currency (e.g. "USD")
+     * @param to target currency (e.g. "PLN")
+     * @return converted amount, rounded to 2 decimal places
+     */
     public BigDecimal exchange(BigDecimal amount, String from, String to){
         if(from.equals(to)){
             return amount;
@@ -32,10 +40,10 @@ public class ExchangeService {
                     (fromCurrency == null ? from: to ));
         }
 
+        // Step 1: Convert from source currency to PLN
         BigDecimal plnAmount = amount.multiply(currencyRates.get(from));
 
-        // 2 - wynik zaokrąglony do dwóch miejsc
-        // RoundingMode.HALF_UP - zaokrąglenie do góry
+        // Step 1: Divide by target rate to convert PLN to the target currency
         return plnAmount.divide(currencyRates.get(to), 2, RoundingMode.HALF_UP);
     }
 

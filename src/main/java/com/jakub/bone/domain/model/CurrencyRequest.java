@@ -10,13 +10,11 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor // @NoArgsConstructor - Jackson requires no args constructor to create JSON request
 public class CurrencyRequest {
     private BigDecimal amount;
     private String from;
     private String to;
-
-    // @NoArgsConstructor - Jackson wymaga bezargumentowgo, aby stworzyć request
 }
 
 
