@@ -1,6 +1,6 @@
 # 💵🌱 CurrencyExchangeApp
 
-This project is a simple Spring Boot application that I built to learn and practice the Spring Framework 
+This project is a simple Spring Boot application that I am currently developing to learn and practice the Spring Framework. 
 
 I learn the fundamentals of Spring Boot, dependency injection, and REST API development.
 
