@@ -1,4 +1,4 @@
-# 💵🌱 CurrencyCalculator
+# 💵🌱 CurrencyExchangeApp
 
 This project is a simple Spring Boot application that I built to learn and practice the Spring Framework 
 

@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication // Component scanning and auto-configuration for the Spring Boot app
-public class ExchangeApp   {
+public class CurrencyExchangeApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(ExchangeApp.class, args);
+        SpringApplication.run(CurrencyExchangeApp.class, args);
     }
 
     /*
