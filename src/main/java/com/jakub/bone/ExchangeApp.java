@@ -18,5 +18,5 @@ public class ExchangeApp   {
 
     # PowerShell:
     curl -X POST http://localhost:8080/api/currency/exchange -H "Content-Type: application/json" -d '{ "amount":100, "from":"EUR", "to":"PLN" }'
-    */
+     */
 }
