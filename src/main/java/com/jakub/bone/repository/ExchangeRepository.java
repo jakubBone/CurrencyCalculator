@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class ExchangeRepository {
 
-   private Datasource datasource;
+   private final Datasource datasource;
 
     public ExchangeRepository(Datasource datasource) {
        this.datasource = new Datasource();

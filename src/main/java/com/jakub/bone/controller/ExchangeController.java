@@ -16,7 +16,7 @@ public class ExchangeController {
     // @RestController - informuje Springa, że klasa będzie obsługiwać żądania REST
     // @RequestMapping - ustala wspólny prefiks dla wszystkich endpointów
 
-    ExchangeService service;
+    private final ExchangeService service;
 
     public ExchangeController(ExchangeService service) {
         this.service = service;
