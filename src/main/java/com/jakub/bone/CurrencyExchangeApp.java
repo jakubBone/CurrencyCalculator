@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication // Component scanning and auto-configuration for the Spring Boot app
 public class CurrencyExchangeApp {
-
     public static void main(String[] args) {
         SpringApplication.run(CurrencyExchangeApp.class, args);
     }
